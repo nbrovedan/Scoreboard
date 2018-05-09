@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 import config from '../config/config.js';
 
-mongoose.connect('mongodb://' + config.db.user + ':' + config.db.pass + '@ds215380.mlab.com:15380/scoreboard_naidion')
+const env = process.env.NODE_ENV || 'dev';
+const dbconfig = config.db[env.trim()];
+
+mongoose.connect('mongodb://' + dbconfig.user + ':' + dbconfig.pass + '@ds215380.mlab.com:15380/' + dbconfig.database);
 
 module.exports = mongoose;

@@ -11,15 +11,15 @@ module.exports = (app) => {
 		if(!req.body || !req.body.files){
 			res.sendStatus(412).end();
 		}else{
-			let options = { 
+			let options = {
 				method: 'POST',
 	  			url: 'https://api.github.com/gists',
-	  			headers: { 
+	  			headers: {
 	  				'Cache-Control': 'no-cache',
 	     			'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0',
-	     			Authorization: 'Basic ' + Buffer.from(config.github.user + ':' + config.github.pass).toString('base64') 
+	     			Authorization: 'Basic ' + Buffer.from(config.github.user + ':' + config.github.pass).toString('base64')
 	     		},
-	  			body: JSON.stringify(req.body) 
+	  			body: JSON.stringify(req.body)
 	  		};
 
 			request(options, function (error, response, body) {
@@ -34,13 +34,13 @@ module.exports = (app) => {
 			  		files: body.files
 			  	});
 
-				gist.save((err, result) => {
-					if (err) {
-						res.status(500).end(err.message);
-					}else{
-						res.sendStatus(201);
-					}
-				});
+					gist.save((err, result) => {
+						if (err) {
+							res.status(500).end(err.message);
+						}else{
+							res.sendStatus(201).end();
+						}
+					});
 			  }
 			});
 		}
@@ -51,13 +51,13 @@ module.exports = (app) => {
 		if(!req.params || !req.params.id){
 			res.sendStatus(400).end();
 		}else{
-			let options = { 
+			let options = {
 				method: 'GET',
 			  	url: 'https://api.github.com/gists/' + req.params.id + '/comments',
-			  	headers: { 
+			  	headers: {
 			  		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:59.0) Gecko/20100101 Firefox/59.0',
-			     	'Cache-Control': 'no-cache' 
-			     } 
+			     	'Cache-Control': 'no-cache'
+			     }
 			 };
 
 			request(options, function (error, response, body) {
@@ -75,4 +75,3 @@ module.exports = (app) => {
 		getComments: _getComments
 	}
 }
-
