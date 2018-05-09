@@ -11,13 +11,13 @@ No parameters
 ### Results
 
 - 200 - OK
+- 500 - Error
+
 #### Data
 - *scores*: Array of score
   - *contestant*: Number of contestant (1 - 100)
   - *total_penalty*: Sum of times
   - *problems_solved*: Number of solved problems
-
-- 500 - Error
 
 ### Example
 
