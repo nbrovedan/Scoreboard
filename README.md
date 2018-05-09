@@ -35,7 +35,7 @@ For running some tests, import `postman_collection.json` file in Postman and Run
 #### Methods
 Endpoint | Description
 ------------ | -------------
-[POST /score](./post_score.md) | Send case solutions
-[GET /score](./get_score.md) | Get ranking of contestants
-[POST /gist](./post_gist.md) | Create a new gist
-[GET /gist/`{id}`](./get_gist.md) | Get gist comments 
+[`POST /score`](./post_score.md) | Send case solutions
+[`GET /score`](./get_score.md) | Get ranking of contestants
+[`POST /gist`](./post_gist.md) | Create a new gist
+[`GET /gist/{id}`](./get_gist.md) | Get gist comments 
