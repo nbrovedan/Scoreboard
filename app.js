@@ -3,7 +3,7 @@ import express from 'express';
 
 let app = express();
  
-consign()
+consign({verbose:false})
 .include('libs/middlewares.js')
 .then('db')
 .then('models')
@@ -11,3 +11,5 @@ consign()
 .then('routes')
 .then('libs/boot.js')
 .into(app);
+
+module.exports = app;
