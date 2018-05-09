@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "ce2318a4-8bf7-42c8-bbf3-993063e10081",
+		"name": "TechTest_DevGrid",
+		"description": "Collection of tests for TechTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Send scoreboard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "271f77aa-d9ec-4baa-9581-bb572ce9a7b0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"case\":1,\n\t\"solutions\":[\n\t\t{\n\t\t\t\"contestant\":1,\n\t\t\t\"problem\":2,\n\t\t\t\"time\":10,\n\t\t\t\"type\":\"I\"\n\t\t},\n\t\t{\n\t\t\t\"contestant\":1,\n\t\t\t\"problem\":1,\n\t\t\t\"time\":15,\n\t\t\t\"type\":\"C\"\n\t\t},\n\t\t{\n\t\t\t\"contestant\":4,\n\t\t\t\"problem\":2,\n\t\t\t\"time\":18,\n\t\t\t\"type\":\"C\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/score",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get scoreboard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "837bf577-399f-429e-8e38-f5ca94a6c6bf",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is valid\", function () {",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "127.0.0.1:8080/score",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Gists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd47023a-cba8-4047-b62f-255911eb2963",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"Some file description\",\n\t\"public\": true,\n\t\"files\":{\n\t\t\"TestFile.txt\":{\n\t\t\t\"content\":\"Some file content\"\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/gist",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"gist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get gist's comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cbb2c168-3529-4d29-a8f3-b71508d7dbd5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response is valid\", function () {",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://api.github.com/gists/1e372ca81027bc51bd08bfd2f65979e1/comments",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"gists",
+						"1e372ca81027bc51bd08bfd2f65979e1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send scoreboard error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "271f77aa-d9ec-4baa-9581-bb572ce9a7b0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"case\":1,\n\t\"solutions\":[\n\t\t{\n\t\t\t\"contestant\":1,\n\t\t\t\"problem\":2,\n\t\t\t\"time\":10,\n\t\t\t\"type\":\"I\"\n\t\t},\n\t\t{\n\t\t\t\"contestant\":1,\n\t\t\t\"problem\":10,\n\t\t\t\"time\":15,\n\t\t\t\"type\":\"C\"\n\t\t},\n\t\t{\n\t\t\t\"contestant\":4,\n\t\t\t\"problem\":2,\n\t\t\t\"time\":18,\n\t\t\t\"type\":\"C\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/score",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Gists error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd47023a-cba8-4047-b62f-255911eb2963",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Created\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"Some file description\",\n\t\"public\": true,\n\t\"files\":{\n\t\t\"TestFile.txt\":{\n\t\t\t\"content\":\"Some file content\"\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/gist",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"gist"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c4ec5612-27b6-488e-ba43-ecde31f867be",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2862f64f-a4a5-4e56-a03b-212728825e2b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
