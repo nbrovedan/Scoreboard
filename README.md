@@ -32,7 +32,10 @@ Access `config.js` file in `config` folder and change github `user` and `pass`.
 
 ## Running the tests
 
-For running some tests, import `postman_collection.json` file in Postman and Run collections.
+For running some tests, import `postman_collection.json` file in Postman and Run collections, or follow the steps below.
+```
+npm test
+```
 
 ### API documentation
 
