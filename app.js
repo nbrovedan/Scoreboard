@@ -2,7 +2,7 @@ import consign from 'consign';
 import express from 'express';
 
 let app = express();
-
+ 
 consign()
 .include('libs/middlewares.js')
 .then('db')
