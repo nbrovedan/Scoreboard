@@ -4,7 +4,7 @@ module.exports = {
 		pass: 'qwe123'
 	},
 	github:{
-		user:'brovedan@gmail.com',
-		pass:'M@nsosup&r2294'
+		user:'',
+		pass:''
 	}
 }
