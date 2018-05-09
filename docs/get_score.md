@@ -14,32 +14,26 @@ No parameters
 - 500 - Error
 
 #### Data
-- *scores*: Array of score
-  - *contestant*: Number of contestant (1 - 100)
-  - *total_penalty*: Sum of times
-  - *problems_solved*: Number of solved problems
+- *comments*: Array of comments
+  - *id*: Comment id
+  - *url*: URL to the comment
+  - *user*: Object of the user comment owner
+  - *created_at*: Creation date
+  - *updated_at*: Update date
 
 ### Example
 
 ```javascript
 [
   {
-    "contestant": 4,
-    "total_penalty": 153,
-    "problems_solved": 8
-  },
-  {
-    "contestant": 1,
-    "total_penalty": 206,
-    "problems_solved": 6
-  },
-  {
-    "contestant": 6,
-    "total_penalty": 106,
-    "problems_solved": 6
+    "id": 1,
+    "url": "https://api.github.com/gists/a6db0bec360bb87e9418/comments/1",
+    "body": "Just commenting for the sake of commenting",
+    "user": {Object of user},
+    "created_at": "2011-04-18T23:23:56Z",
+    "updated_at": "2011-04-18T23:23:56Z"
   }
-]
-```
+]```
 ```
 200 - OK
 ``` 
